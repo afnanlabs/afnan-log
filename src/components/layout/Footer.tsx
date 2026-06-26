@@ -1,12 +1,12 @@
-import { useRef } from 'react'
-import { useAppStore } from '@/store/app-store'
-import { useCursorHover } from '@/hooks/useCursorHover'
+import { useRef } from "react";
+import { useAppStore } from "@/store/app-store";
+import { useCursorHover } from "@/hooks/useCursorHover";
 
 export function Footer() {
-  const { navigate } = useAppStore()
-  const logoRef = useRef<HTMLButtonElement>(null)
+  const { navigate } = useAppStore();
+  const logoRef = useRef<HTMLButtonElement>(null);
 
-  useCursorHover(logoRef)
+  useCursorHover(logoRef);
 
   return (
     <footer className="border-t border-border bg-background">
@@ -14,19 +14,19 @@ export function Footer() {
         <div className="flex items-center gap-6">
           <button
             ref={logoRef}
-            onClick={() => navigate('home')}
+            onClick={() => navigate("home")}
             className="font-mono text-sm font-bold tracking-[0.06em] text-foreground transition-opacity hover:opacity-70 focus-visible:outline-2"
           >
-            ARCHITECT
+            AFNAN.LOG
           </button>
           <span className="font-mono text-xs text-muted-foreground">
-            © 2024 ENGINEER-WRITER. BUILT FOR SPEED.
+            © 2026 Afnan Khan.
           </span>
         </div>
 
         <nav aria-label="Footer navigation">
           <ul className="flex items-center gap-4">
-            {(['GitHub', 'RSS', 'Twitter'] as const).map((link) => (
+            {(["GitHub", "LinkedIn", "Email"] as const).map((link) => (
               <li key={link}>
                 <FooterLink href="#" aria-label={link}>
                   {link}
@@ -37,20 +37,20 @@ export function Footer() {
         </nav>
       </div>
     </footer>
-  )
+  );
 }
 
 function FooterLink({
   href,
-  'aria-label': ariaLabel,
+  "aria-label": ariaLabel,
   children,
 }: {
-  href: string
-  'aria-label': string
-  children: React.ReactNode
+  href: string;
+  "aria-label": string;
+  children: React.ReactNode;
 }) {
-  const ref = useRef<HTMLAnchorElement>(null)
-  useCursorHover(ref)
+  const ref = useRef<HTMLAnchorElement>(null);
+  useCursorHover(ref);
 
   return (
     <a
@@ -61,5 +61,5 @@ function FooterLink({
     >
       {children}
     </a>
-  )
+  );
 }
